@@ -1,6 +1,11 @@
 Storysmoker::Application.routes.draw do
-  get "welcome/index"
-  resources :posts
+  
+  #get "welcome/index"
+  #resources :posts
+ 
+  resources :stories do
+   resources :snippets
+  end
   
   root to: "welcome#index"
 

@@ -12,6 +12,7 @@ color:#6e6e6e;
 text-align:left;
 height: 100%;
 
+
 }
 
 
@@ -77,7 +78,7 @@ background:url(navbar-bg.png) ; }
 display:block;
 height:36px;
 /** right side picture **/
-background:url() right top no-repeat; }
+}
 #navbar ul, #navbar ul li{
 border:0px;
 margin:0px;
@@ -86,11 +87,11 @@ list-style:none;
 height:36px;
 line-height:36px; } #navbar ul{
 /** left side picture **/
-background:url() left top no-repeat; } 
+ }
 #navbar ul li{
 float:left;
 display:block;
-line-height:36px; } 
+line-height:36px; }
 #navbar ul li a{
 color:#403e32;
 text-decoration:none;

@@ -8,7 +8,6 @@ Storysmoker::Application.routes.draw do
   resources :stories do
    resources :snippets
   end
-  resource :users
   
   root to: "welcome#index"
 

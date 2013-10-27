@@ -1,7 +1,7 @@
 Storysmoker::Application.routes.draw do
   
-  get "users/register"
-  get "users/login"
+  get "users_controller/register"
+  get "users_controller/login"
   #get "welcome/index"
   #resources :posts
  

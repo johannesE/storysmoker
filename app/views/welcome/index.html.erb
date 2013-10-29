@@ -1,14 +1,12 @@
-<p>Begin a Story</p>
 <h2><%= link_to 'Create a Story', new_story_path %></h2>
-
-
-<p>Continue an existing Story</p>
-
-<h2><%= link_to 'Continue a Story', story_snippets_path(1) %></h2>
-
-
-<p>Here you can read existing stories</p>
-
+<h2><%= link_to 'Continue a Story (to be discussed!)', root_path %></h2>
 <h2><%= link_to 'Read the stories', stories_path %></h2>
-			 
+
+
+
+<div id="debug">
+<h3>Following our routes, we can now:<h3>
+<h4><%= link_to '- list all the snippets for a given story (here id=1); we obtain the story!', story_snippets_path(1)%></h4>
+<h4><%= link_to '- list all the last snippets', story_snippets_path(1)%></h4>
+</div>			 
  

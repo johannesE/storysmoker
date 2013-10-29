@@ -11,6 +11,16 @@ a {
  text-decoration: none;
 }
 
-a:hover{
+a:hover, #debug a:hover{
  color: yellow;
 }
+
+#debug{
+ background-color: #444;
+ color: #eee;
+ padding: 5px;
+}
+#debug a{
+ color: #eee;
+}
+

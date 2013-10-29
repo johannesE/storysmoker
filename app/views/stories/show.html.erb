@@ -1,24 +1,6 @@
-<h1>
+<h2>
   <%= @story.title %>
-<h1>
-
-<hr />
+</h2>
 
 <%= render @story.snippets %>
  
-<h2>Continue the story...</h2>
-<%= render "snippets/form" %>
- 
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
-
-<h1>
-</h1>
-
-<h1>
-first = <%= @story.snippets.first.content.inspect %>
-</h1>
-
-<% if @story.snippets.first.content != nil %>
-<h1>last = <%= @story.snippets.order("created_at ASC").last.content.inspect %></h1>
-<% end %>	

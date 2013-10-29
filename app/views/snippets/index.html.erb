@@ -4,21 +4,18 @@
   <thead>
     <tr>
       <th>Content</th>
-      <th>Story</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
   </thead>
-
   <tbody>
     <% @snippets.each do |snippet| %>
       <tr>
         <td><%= snippet.content %></td>
-        <td><%= snippet.story %></td>
-        <td><%= link_to 'Show', snippet %></td>
-        <td><%= link_to 'Edit', edit_snippet_path(snippet) %></td>
-        <td><%= link_to 'Destroy', snippet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show | ', story_snippet_path(@story, snippet) %></td>
+        <td><%= link_to 'Edit | ', edit_story_snippet_path(@story, snippet) %></td>
+        <td><%= link_to 'Destroy', story_snippet_path(@story, snippet), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Snippet', new_snippet_path %>
+<%= link_to 'New Snippet', new_story_snippet_path(@story) %>

@@ -1,66 +1,15 @@
-<head>
-<title>StorySmoker - test the story</title>
-</head>
+<p>Begin a Story</p>
+<h2><%= link_to 'Create a Story', new_story_path %></h2>
 
-<body>
- <!-- Nav START here -->
 
-   <div id="navbar">
-<span class="inbar">
-<ul>
-<li class="navhome"><a href="home.html"><span>Home</span></a></li>
-<li><a href="about.html"><span>About</span></a></li>
-<li><a href="contact.html"><span>Products</span></a></li>
-<li><a href="contact.html"><span>Contact Us</span></a></li>
-<li><a href="registration.html"><span>Registration</span></a></li>
-</ul>
-</span>
-</div>
+<p>Continue an existing Story</p>
 
-      <!-- Nav END here -->
-<h1>StorySmoker</h1>
+<h2><%= link_to 'Continue a Story', new_story_snippet_path(1) %></h2>
 
 
 
+<p>Here you can read existing stories</p>
 
- <!-- Content START here -->
-  <div id="content">
-    <!-- Container START here -->
-    <div class="container">
-      <!-- Main-Colum START here -->
-      <div id="main-colum">
-        <!-- Features START here -->
-        <div id="features">
-        
-        
-          <!-- Feature-Box #1 END here -->
-          
-          
-          <!-- Feature-Box #2 START here -->
-          <div class="feature-box">
-            <div class="inside">
-            <h5>Create A Story</h5>
-             
-              <p>Here you can create your own Story</p>
-            </div>
-          </div>
-          <!-- Feature-Box #2 END here -->
-        
-        
-          <!-- Feature-Box #1 START here -->
-          <div class="feature-box">
-            <div class="inside">
-              <h5>Read The Story</h5>
-              
-              <p><a href="services.html">Here you can read existing stories</a></p>
-            </div>
-          </div>
-        
-  </div>
-  <!-- Content END here -->
-      </div>
-
-    </div>
-  </div>
-
-</body>
+<h2><%= link_to 'Read the stories', stories_path %></h2>
+			 
+ 

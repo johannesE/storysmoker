@@ -2,23 +2,28 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Title</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @stories.each do |story| %>
+  <% @stories.each do |story| %>
       <tr>
         <td><%= story.title %></td>
         <td><%= link_to 'Show | ', story %></td>
+<<<<<<< HEAD
         <td><%= link_to 'Edit  ', edit_story_path(story) %></td>
 
+=======
+        <td><%= link_to 'Edit | ', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+>>>>>>> da3d6451e07af193ddc69bd6d79551d4a6def50a
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

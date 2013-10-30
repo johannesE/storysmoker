@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131030125210) do
+=======
+ActiveRecord::Schema.define(version: 20131030133308) do
+>>>>>>> da3d6451e07af193ddc69bd6d79551d4a6def50a
 
   create_table "snippets", force: true do |t|
     t.string   "content"
@@ -28,6 +32,26 @@ ActiveRecord::Schema.define(version: 20131030125210) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: true do |t|
+    t.string "name"
+  end
+
+>>>>>>> da3d6451e07af193ddc69bd6d79551d4a6def50a
   create_table "users", force: true do |t|
     t.string   "username",                     null: false
     t.string   "email"
@@ -40,5 +64,9 @@ ActiveRecord::Schema.define(version: 20131030125210) do
   end
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> da3d6451e07af193ddc69bd6d79551d4a6def50a
 end

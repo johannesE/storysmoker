@@ -52,6 +52,24 @@ class StoriesController < ApplicationController
   end
 
 
+  def tagged
+    if params[:tag].present?
+       @story = Post.tagged_with(params[:tag])
+    else
+      @story = Post.postall
+    end
+  end
+
+  # DELETE /stories/1
+  # DELETE /stories/1.json
+  def destroy
+    @story.destroy
+    respond_to do |format|
+      format.html { redirect_to stories_url }
+      format.json { head :no_content }
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -61,6 +79,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title)
+      params.require(:story).permit(:title, :tag_list)
     end
 end

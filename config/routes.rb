@@ -6,6 +6,10 @@ Storysmoker::Application.routes.draw do
   post 'logout' => "user_sessions#destroy", :as => :logout
   resources :users
 
+  #tags
+post 'tagged' => 'posts#tagged', :as => 'tagged'
+
+
   #get "welcome/index"
   #resources :posts
   get "home" => "welcome#index", as: :home

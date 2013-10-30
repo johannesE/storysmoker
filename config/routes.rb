@@ -3,12 +3,13 @@ Storysmoker::Application.routes.draw do
   #user management
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
-  post 'logout' => 'user_sessions#destroy', :as => :logout
+  post 'logout' => "user_sessions#destroy", :as => :logout
   resources :users
 
   #get "welcome/index"
   #resources :posts
- 
+  get "home" => "welcome#index", as: :home
+
   resources :stories do
    resources :snippets
   end

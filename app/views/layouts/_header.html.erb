@@ -4,9 +4,14 @@
 <h4>
 <%= link_to 'See all the stories', stories_path %> |
 <%= link_to 'Create a Story', new_story_path %> |
-<%= link_to "Login", :login %> |
-<%= link_to "Logout", :logout, :method => :post %> |
-<%= link_to "Register", new_user_path %>
+
+  <% if current_user %>|
+      <%= link_to "Logout", :logout, :method => :post %>
+  <% else %>
+      <%= link_to "Login", :login %>
+      <%= link_to "Register", new_user_path %>
+
+<% end %>
 </h4>
 
 <hr />

@@ -10,6 +10,13 @@ gem 'sorcery'
 gem 'acts-as-taggable-on'
 
 
+#twitterbootstrap
+#group :assets do
+ gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+#end
+
+
+
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'

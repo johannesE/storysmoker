@@ -1,5 +1,13 @@
 <h1>New snippet</h1>
 
+<h4>The last sentence is:
+<% if @story.snippets.first.content != nil %>
+ <%= @story.snippets.order("created_at ASC").last.content%>
+<% end %>	
+</h4>
+
+
+
 <%= render 'form' %>
 
-<%= link_to 'Back', snippets_path %>
+<%= link_to 'Back', story_snippets_path(@story) %>

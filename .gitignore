@@ -17,6 +17,7 @@
 /tmp
 /idea
 /.idea
+*.lock
 *.rbc
 *.sassc
 .sass-cache

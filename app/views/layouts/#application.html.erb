@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Storysmoker</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fluid-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="container-fluid nav-collapse">
+        <ul class="nav">
+          <li class="brand"><%= link_to "RESTChat", root_path  %></li>
+        </ul>
+        <ul class="nav navbar-right navbar-nav">
+          <% if current_user %>
+              <li><%= link_to "Logout", :logout, :method => :post %></li>
+              <li><%= link_to "Stories", stories_path %></li>
+          <% else %>
+              <li><%= link_to "Login", :login %></li>
+              <li><%= link_to "Register", new_user_path %></li>
+          <% end %>
+
+
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+<%= render "layouts/header" %>
+
+<%= yield %>
+
+<%= render "layouts/footer" %>
+
+</body>
+</html>

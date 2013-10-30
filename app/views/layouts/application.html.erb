@@ -46,39 +46,35 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Storysmoker</a>
+          <a class="brand" href="<%=root_path%>">Storysmoker</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Stories", stories_path  %></li>
+          <% if current_user %>
+              <li><%= link_to "Logout", :logout, :method => :post %></li>
+              <li><%= link_to "Stories", stories_path %></li>
+          <% else %>
+              <li><%= link_to "Login", :login %></li>
+              <li><%= link_to "Register", new_user_path %></li>
+          <% end %>			  
+			  
+			  
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
+<hr />
     <div class="container">
         <div class="row">
-          <div class="span9">
+          <div>
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-          <div class="span3">
-            <div class="well sidebar-nav">
-              <h3>Sidebar</h3>
-              <ul class="nav nav-list">
-                <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
-              </ul>
-            </div><!--/.well -->
-          </div><!--/span-->
         </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; StorySmocker |  Social Computing |  University Of Fribourg 2013</p>
       </footer>
 
     </div> <!-- /container -->

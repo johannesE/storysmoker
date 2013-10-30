@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131030125210) do
-=======
-ActiveRecord::Schema.define(version: 20131023112238) do
->>>>>>> cdce2025cafd68a6c734913e004b79ba09b33e78
 
   create_table "snippets", force: true do |t|
     t.string   "content"
@@ -32,7 +28,6 @@ ActiveRecord::Schema.define(version: 20131023112238) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
   create_table "users", force: true do |t|
     t.string   "username",                     null: false
     t.string   "email"
@@ -46,6 +41,4 @@ ActiveRecord::Schema.define(version: 20131023112238) do
 
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
 
-=======
->>>>>>> cdce2025cafd68a6c734913e004b79ba09b33e78
 end

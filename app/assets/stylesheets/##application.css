@@ -1,0 +1,26 @@
+body {
+ background-color: #eee;
+ color: #444;
+ margin: 0 auto;
+ width: 800px;
+ font-size: 26px;
+}
+
+a {
+ color: #444;
+ text-decoration: none;
+}
+
+a:hover, #debug a:hover{
+ color: yellow;
+}
+
+#debug{
+ background-color: #444;
+ color: #eee;
+ padding: 5px;
+}
+#debug a{
+ color: #eee;
+}
+

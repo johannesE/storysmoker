@@ -1,5 +1,7 @@
 Storysmoker::Application.routes.draw do
 
+  resources :authentications
+
   #user management
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login

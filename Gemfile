@@ -63,3 +63,10 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Facebook twitter authentication 
+gem 'omniauth' 
+
+
+#heroku
+gem 'sinatra', '1.1.0'

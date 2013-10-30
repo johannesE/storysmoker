@@ -6,6 +6,9 @@ gem 'rails', '4.0.0'
 #authentication
 gem 'sorcery'
 
+#tagging
+gem 'acts-as-taggable-on'
+
 
 group :development do
   # Use sqlite3 as the database for Active Record

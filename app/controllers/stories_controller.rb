@@ -51,6 +51,14 @@ class StoriesController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+       @story = Post.tagged_with(params[:tag])
+    else
+      @story = Post.postall
+    end
+  end
+
   # DELETE /stories/1
   # DELETE /stories/1.json
   def destroy
@@ -69,6 +77,6 @@ class StoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title)
+      params.require(:story).permit(:title, :tag_list)
     end
 end

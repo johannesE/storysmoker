@@ -1,6 +1,6 @@
 <%= form_for([@story, @story.snippets.build]) do |f| %>
   <p>
-    <%= f.text_area :content, size: "100x1" %>
+    <%= f.text_area :content, class: 'input-xxlarge' %>
   </p>
   <p>
     <%= f.submit %>

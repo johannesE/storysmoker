@@ -19,7 +19,8 @@ class SnippetsController < ApplicationController
   def create
    @story = Story.find(params[:story_id])
    @snippet = @story.snippets.create(params[:snippet].permit(:content))
-	redirect_to story_path(@story)
+   #redirect_to story_path(@story)
+   redirect_to root_path
   end
 
 

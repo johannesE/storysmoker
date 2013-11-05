@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030221409) do
+ActiveRecord::Schema.define(version: 20131105162057) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20131030221409) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "editable"
   end
 
   create_table "taggings", force: true do |t|

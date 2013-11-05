@@ -8,8 +8,17 @@
  <h2><%= link_to 'Read existing Stories', stories_path %></h2> 
 </div> 
 
-<div id="create">
- <h2><%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: '1').offset(rand(Story.where(editable: '1').count)).first.id) %></h2>
+<div id="create"> 
+<h2>
+<% if Story.where(editable: '1') != nil %>
+<%= link_to 'Create a story', new_story_path%>
+
+<% else %> 
+<%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: '1').offset(rand(Story.where(editable: '1').count)).first.id) %>
+<% end %> 
+</h2>
+ 
+ 
 </div>
 
 

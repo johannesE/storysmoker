@@ -1,4 +1,7 @@
-<h3>STORYSMOKER - SMOKE YOUR STORIES - TOGETHER</h3>
+<img class="gb" src="gb.jpg" alt="girl with book">
+
+<h3 class="welcome">STORYSMOKER - SMOKE YOUR STORIES - TOGETHER</h3>
+
 
 
 <div id="read">
@@ -8,5 +11,6 @@
 <div id="create">
  <h2><%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: '1').offset(rand(Story.where(editable: '1').count)).first.id) %></h2>
 </div>
+
 
 

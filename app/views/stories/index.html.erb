@@ -9,9 +9,9 @@
     <th></th>
   </tr>
   </thead>
-
+ 
   <tbody>
-  <% @stories.each do |story| %>
+  <% @stories.where(editable: '0').each do |story| %>
       <tr>
         <td><%= story.title %></td>
         <td><%= link_to 'Show | ', story %></td>

@@ -65,8 +65,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Facebook twitter authentication 
-gem 'omniauth' 
-
+#gem 'omniauth' 
+gem 'omniauth-twitter'
 
 #heroku
 gem 'sinatra', '1.1.0'

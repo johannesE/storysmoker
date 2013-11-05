@@ -10,14 +10,15 @@
 
 <div id="create"> 
 <h2>
-<% if Story.where(editable: '1') != nil %>
-<%= link_to 'Create a story', new_story_path%>
 
+<% if Story.where(editable: 1).count > 0 %>
+ <%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: 1).offset(rand(Story.where(editable: 1).count)).first.id) %>
 <% else %> 
-<%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: '1').offset(rand(Story.where(editable: '1').count)).first.id) %>
+ <%= link_to 'Create a story', new_story_path%>
 <% end %> 
 </h2>
  
+
  
 </div>
 

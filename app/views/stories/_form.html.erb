@@ -16,6 +16,10 @@
       <br>
       <%= f.text_field :title %>
     </div>
+   <%= f.hidden_field :editable, :value => 1 %>
+	
+	
+	
     <div class="field">
       <%= f.label :tag_list, "Tags (separated by commas)" %>
       <br>

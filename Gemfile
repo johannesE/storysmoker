@@ -68,5 +68,7 @@ end
 #gem 'omniauth' 
 gem 'omniauth-twitter'
 
+
+
 #heroku
 gem 'sinatra', '1.1.0'

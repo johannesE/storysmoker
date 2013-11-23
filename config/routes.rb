@@ -10,6 +10,7 @@ Storysmoker::Application.routes.draw do
 
   #tags
 post 'tagged' => 'posts#tagged', :as => 'tagged'
+get 'tagged' =>  'stories#findByTag'
 
 
   #get "welcome/index"

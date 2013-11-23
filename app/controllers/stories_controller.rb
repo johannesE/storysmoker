@@ -51,26 +51,33 @@ class StoriesController < ApplicationController
     end
   end
 
+  def findByTag
+    if params[:tag].present?
+      @stories = Story.tagged_with(params[:tag], :match_all => true)
+    else
+      @stories = Story.all
+    end
+    render 'stories/index'
+  end
+
 
   def tagged
     if params[:tag].present?
-       @story = Post.tagged_with(params[:tag])
+      @story = Story.tagged_with(params[:tag])
     else
-      @story = Post.postall
+      @story = Story.all
     end
   end
 
 
-
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_story
-      @story = Story.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_story
+    @story = Story.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def story_params
-      params.require(:story).permit(:title, :editable, :tag_list)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def story_params
+    params.require(:story).permit(:title, :editable, :tag_list)
+  end
 end

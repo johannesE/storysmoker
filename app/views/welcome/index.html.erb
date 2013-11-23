@@ -14,13 +14,12 @@
 <% if Story.where(editable: 1).count > 0 %>
  <%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: 1).offset(rand(Story.where(editable: 1).count)).first.id) %>
 <% else %> 
- <%= link_to 'Create a story', new_story_path%>
-<% end %> 
+ no story at the moment
+<% end %>
 </h2>
-
-
-
-
+<h2>
+ <%= link_to 'Create a story', new_story_path%>
+</h2>
 
 
  

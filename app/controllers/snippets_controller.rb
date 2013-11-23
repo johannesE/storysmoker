@@ -18,7 +18,7 @@ class SnippetsController < ApplicationController
    #1 means that the story is editable
    #2 means that the story is locked (someone is editing it)
    
-   @story.update_attribute(:editable, '2')
+   #@story.update_attribute(:editable, '2') FIXME
    
    
   end
@@ -31,7 +31,7 @@ class SnippetsController < ApplicationController
    #redirect_to story_path(@story)
    
    #Now, we can unlock the database
-   @story.update_attribute(:editable, '1')
+   #@story.update_attribute(:editable, '1')
 
    
    redirect_to root_path

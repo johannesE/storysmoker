@@ -53,20 +53,11 @@ class StoriesController < ApplicationController
 
   def findByTag
     if params[:tag].present?
-      @stories = Story.tagged_with(params[:tag], :match_all => true)
+      @stories = Story.tagged_with(params[:tag])
     else
       @stories = Story.all
     end
     render 'stories/index'
-  end
-
-
-  def tagged
-    if params[:tag].present?
-      @story = Story.tagged_with(params[:tag])
-    else
-      @story = Story.all
-    end
   end
 
 

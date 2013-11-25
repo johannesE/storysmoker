@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h2.snippet {
- text-align: center;
- text-decoration: underline;
-}
+
+progress {  
+ background-color: #f3f3f3;  
+ border: none;  
+ height: 40px;
+ width: 100%;
+}  

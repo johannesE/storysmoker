@@ -1,8 +1,7 @@
-<h4>What happens next?</h4>
-<hr />
-
-<h2 class="snippet"><%= @story.title %></h2>
-
+<%- model_class = Snippet -%>
+<div class="page-header">
+ <h1 class="snippet"><%= @story.title %></h1>
+</div>
 
 <h2>
 <% if @story.snippets.first.content != nil %>
@@ -12,11 +11,13 @@
 <% end %>
 </h2>
 
-<h6>Now it is up to you...</h6>
 
 
 
+<%= render :partial => 'form' %>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', story_snippets_path(@story) %>
+
+<h4>The following bar helps you to situate your action in the story</h4>
+<progress value="<%= @story.snippets.count %>" max="20"></progress>  
+

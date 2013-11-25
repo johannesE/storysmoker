@@ -1,29 +1,28 @@
-<h1>All the stories...</h1>
-
-<table>
+<%- model_class = Story -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <tr>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+    </tr>
   </thead>
-
   <tbody>
+  	
   <% @stories.where(status: 'finished').each do |story| %>
       <tr>
-        <td><%= story.title %></td>
-        <td><%= link_to 'Show | ', story %></td>
-
-        <td><%= link_to 'Edit  ', edit_story_path(story) %></td>
-
+		<td><%= link_to story.title, story_path(story) %></td>
       </tr>
-  <% end %>
+  <% end %>	
+	
+	
   </tbody>
 </table>
 
-<br>
-<div class="btn btn-info">
-  <%= link_to 'New Story', new_story_path %>
-</div>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_story_path,
+            :class => 'btn btn-primary' %>
+			
+			
+			

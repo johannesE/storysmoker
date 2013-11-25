@@ -14,11 +14,11 @@ class SnippetsController < ApplicationController
    @snippets = @story.snippets.new
    
    #Here, we 'lock' the database - a bit hacky but...
-   #0 means that the story is finished
-   #1 means that the story is editable
-   #2 means that the story is locked (someone is editing it)
+   #finished: means that the story is finished
+   #editable: means that the story is editable
+   #locked: means that the story is locked (someone is editing it)
    
-   #@story.update_attribute(:editable, '2') FIXME
+   #@story.update_attribute(:status, 'l') FIXME
    
    
   end
@@ -31,7 +31,7 @@ class SnippetsController < ApplicationController
    #redirect_to story_path(@story)
    
    #Now, we can unlock the database
-   #@story.update_attribute(:editable, '1')
+   #@story.update_attribute(:status, 'e')
 
    
    redirect_to root_path

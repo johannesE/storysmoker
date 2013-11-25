@@ -11,8 +11,8 @@
 <div id="create"> 
 <h2>
 
-<% if Story.where(editable: 1).count > 0 %>
- <%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(editable: 1).offset(rand(Story.where(editable: 1).count)).first.id) %>
+<% if Story.where(status: 'editable').count > 0 %>
+ <%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
 <% else %> 
  no story at the moment
 <% end %>

@@ -1,7 +1,7 @@
-<img class="gb" src="gb.jpg" alt="girl with book">
+<%= image_tag "gb.jpg", :class => 'gb' %>
 
 <h3 class="welcome">STORYSMOKER - SMOKE YOUR STORIES - TOGETHER</h3>
-
+<hr />
 
 
 <div id="read">
@@ -12,18 +12,19 @@
 <h2>
 
 <% if Story.where(status: 'editable').count > 0 %>
- <%= link_to 'Try it out yourself', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
+ <%= link_to 'Continue a story', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
 <% else %> 
  no story at the moment
 <% end %>
 </h2>
 <h2>
- <%= link_to 'Create a story', new_story_path%>
+ <%= link_to 'Create a new story', new_story_path%>
 </h2>
-
-
- 
 </div>
+
+<%= image_tag "hg.png" %>
+
+
 
 
 

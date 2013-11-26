@@ -7,7 +7,8 @@ class SnippetsController < ApplicationController
    
   end
 
-#FIXME -------
+
+  
   def new
    #redirect_to root_path
    @story = Story.find(params[:story_id])
@@ -18,24 +19,26 @@ class SnippetsController < ApplicationController
    #editable: means that the story is editable
    #locked: means that the story is locked (someone is editing it)
    
-   #Story.find(params[:story_id]).update_attribute(:status, 'locked') FIXME
-   
+   Story.find(params[:story_id]).update_attribute(:status, 'locked')
    
   end
-#FIXME -------
+
   
   
   def create
+   
    @story = Story.find(params[:story_id])
    @snippet = @story.snippets.create(params[:snippet].permit(:content))
    #redirect_to story_path(@story)
    
    #Now, we can unlock the database
-   #Story.find(params[:story_id]).update_attribute(:status, 'editable')
+   Story.find(params[:story_id]).update_attribute(:status, 'editable')
 
    
    redirect_to root_path
-  end
+
+
+   end
 
 
 

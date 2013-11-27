@@ -10,7 +10,7 @@
       <ul>
         <p>The following Tags are available to browse:</p>
         <% tag_cloud @stories.tag_counts, %w(tag_cloud4 tag_cloud3 tag_cloud2 tag_cloud1) do |tag, css_class| -%>
-            <%= link_to tag.name, tagged_path(tag), :class => css_class -%>
+            <%= link_to tag.name, tagged_url(:tag => tag.name), :class => css_class -%>
         <% end -%>
       </ul>
   <% else %>

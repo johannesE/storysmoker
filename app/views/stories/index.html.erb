@@ -10,7 +10,7 @@
   </thead>
   <tbody>
   	
-  <% @stories.where(status: 'editable').each do |story| %>
+  <% @stories.where(status: 'finished').each do |story| %>
       <tr>
 		<td><%= link_to story.title, story_path(story) %></td>
       </tr>

@@ -10,10 +10,12 @@ gem 'sorcery'
 gem 'acts-as-taggable-on'
 
 
+#FIXME
 #twitterbootstrap
-#group :assets do
-#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-#end
+group :development do
+ gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+end
+
 
 
 

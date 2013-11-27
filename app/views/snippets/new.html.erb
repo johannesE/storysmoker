@@ -3,13 +3,13 @@
  <h1 class="snippet"><%= @story.title %></h1>
 </div>
 
-<h2>
+<h4>
 <% if @story.snippets.first.content != nil %>
  <%= @story.snippets.order("created_at ASC").last.content%>
 <% else %> 
- Hey dude, you have the honor of beginning this story!
+ Hey there, you have the honor of beginning this story!
 <% end %>
-</h2>
+</h4>
 
 <%= render :partial => 'form' %>
 

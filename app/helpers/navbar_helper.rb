@@ -15,12 +15,10 @@ module NavbarHelper
     content_tag(:ul, :class => "nav #{pull_class}", &block)
   end
 
-  def menu_item(name=nil, path="#", *args, &block)
-    path = name || path if block_given?
+  def menu_item(name, path="#", *args)
     options = args.extract_options!
-    content_tag :li, :class => is_active?(path, options) do
-      name, path = path, options if block_given?
-      link_to name, path, options, &block
+    content_tag :li, :class => is_active?(path) do
+      link_to name, path, options
     end
   end
 
@@ -71,11 +69,10 @@ module NavbarHelper
   # Returns current url or path state (useful for buttons).
   # Example:
   #   # Assume we'r currently at blog/categories/test
-  #   uri_state('/blog/categories/test', {})               # :active
-  #   uri_state('/blog/categories', {})                    # :chosen
-  #   uri_state('/blog/categories/test', {method: delete}) # :inactive
-  #   uri_state('/blog/categories/test/3', {})             # :inactive
-  def uri_state(uri, options={})
+  #   uri_state('/blog/categories/test')   # :active
+  #   uri_state('/blog/categories')        # :chosen
+  #   uri_state('/blog/categories/test/3') # :inactive    
+  def uri_state(uri)
     root_url = request.host_with_port + '/'
     root = uri == '/' || uri == root_url
 
@@ -85,9 +82,7 @@ module NavbarHelper
       request.path
     end
 
-    if !options[:method].nil? || !options["data-method"].nil?
-      :inactive
-    elsif uri == request_uri
+    if uri == request_uri
       :active
     else
       if request_uri.start_with?(uri) and not(root)
@@ -158,11 +153,11 @@ module NavbarHelper
   end
 
   def responsive_div(&block)
-    content_tag(:div, :class => "nav-collapse collapse", &block)
+    content_tag(:div, :class => "nav-collapse", &block)
   end
 
-  def is_active?(path, options={})
-    "active" if uri_state(path, options).in?([:active, :chosen])
+  def is_active?(path)
+    "active" if uri_state(path).in?(:active, :chosen)
   end
 
   def name_and_caret(name)

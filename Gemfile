@@ -12,7 +12,7 @@ gem 'acts-as-taggable-on'
 
 #twitterbootstrap
 #group :assets do
- gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 #end
 
 

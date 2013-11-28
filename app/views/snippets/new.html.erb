@@ -3,18 +3,58 @@
  <h1 class="snippet"><%= @story.title %></h1>
 </div>
 
-<h4>
+<h2>
 <% if @story.snippets.first.content != nil %>
  <%= @story.snippets.order("created_at ASC").last.content%>
-<% else %> 
- Hey there, you have the honor of beginning this story!
 <% end %>
-</h4>
+</h2>
 
 <%= render :partial => 'form' %>
 
-
+<hr />
 
 <h4>The following bar helps you to situate your action in the story</h4>
-<progress value="<%= @story.snippets.count %>" max="20"></progress>  
+<progress value="<%= @story.snippets.count %>" max="<%= @story.size%>"></progress>
+
+<h2>
+<% if @story.snippets.count == 0 %>
+ You have to begin this story!
+<% elsif @story.snippets.count == @story.size - 1 %>
+ You have to finish this story! 
+<% end %>
+</h2>
+
+
+<a href="<%= root_path %>"class="fill-div"><p>SAVE!</p></a>
+
+ 
+ 
+
+<% content_for :script do %>
+<script type="text/javascript">
+ window.onunload = function(){document.forms['snippetForm'].submit();}
+</script>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

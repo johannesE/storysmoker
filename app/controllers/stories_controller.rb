@@ -28,8 +28,9 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @story }
+	    format.html { redirect_to root_path, notice: 'Story was successfully created.' }
+        #format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        #format.json { render action: 'show', status: :created, location: @story }
       else
         format.html { render action: 'new' }
         format.json { render json: @story.errors, status: :unprocessable_entity }
@@ -69,6 +70,6 @@ class StoriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def story_params
-    params.require(:story).permit(:title, :status, :tag_list)
+    params.require(:story).permit(:title, :status, :tag_list, :size)
   end
 end

@@ -20,26 +20,33 @@ class SnippetsController < ApplicationController
    #locked: means that the story is locked (someone is editing it)
    
    Story.find(params[:story_id]).update_attribute(:status, 'locked')
-   
+      
   end
 
   
   
   def create
    
-   @story = Story.find(params[:story_id])
-   @snippet = @story.snippets.create(params[:snippet].permit(:content))
-   #redirect_to story_path(@story)
-   
    #Now, we can unlock the database
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
+      
+   respond_to do |format|
+      if params[:snippet][:content].present?
+	     @story = Story.find(params[:story_id])
+         @snippet = @story.snippets.create(params[:snippet].permit(:content))
+		 
+		 #If the story is finished
+		 if @story.snippets.count == @story.size
+	      Story.find(params[:story_id]).update_attribute(:status, 'finished')
+		 end
+		 
+	    format.html { redirect_to root_path, notice: 'Snippet was successfully created!' }
+      else
+	    format.html { redirect_to root_path, notice: 'You left editing a story; it\'s because you are there!' }
+      end
+	end  
 
-   
-   redirect_to root_path
-
-
-   end
-
+  end
 
 
 end

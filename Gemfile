@@ -12,9 +12,8 @@ gem 'acts-as-taggable-on'
 
 #FIXME
 #twitterbootstrap
-group :development do
- gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-end
+#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 
 
 

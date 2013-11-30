@@ -1,5 +1,8 @@
 class SnippetsController < ApplicationController
 
+  #before_filter :authenticate, :except => [:index, :show] FIXME .........................
+
+
   def index
    @story = Story.find(params[:story_id])
    @snippets = @story.snippets

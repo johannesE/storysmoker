@@ -10,4 +10,4 @@
 <% end %>
 
 
-<%= render @story.snippets %>
+<%= render @story.snippets.sort_by &:created_at %>

@@ -17,9 +17,7 @@
 <progress value="<%= @story.snippets.count %>" max="<%= @story.size%>"></progress>
 
 <h2>
-<% if @story.snippets.count == 0 %>
- You have to begin this story!
-<% elsif @story.snippets.count == @story.size - 1 %>
+<% if @story.snippets.count == @story.size - 1 %>
  You have to finish this story! 
 <% end %>
 </h2>
@@ -27,6 +25,9 @@
 <div class="btn btn-success">
  <a href=<%= root_path %>>SAVE!</a>
 </div>
+ 
+ 
+<p>---------------------- TODO adding tags here ----------------------</p> 
  
  
 

@@ -15,6 +15,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @snippets = @story.snippets.new
+	
   end
 
   # GET /stories/1/edit
@@ -25,9 +27,12 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-
+	
     respond_to do |format|
       if @story.save
+	  
+	    @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
+
 	    format.html { redirect_to root_path, notice: 'Story was successfully created.' }
         #format.html { redirect_to @story, notice: 'Story was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @story }

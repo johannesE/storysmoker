@@ -17,6 +17,14 @@ class SnippetsController < ApplicationController
    @story = Story.find(params[:story_id])
    @snippets = @story.snippets.new
    
+   #via url?
+   if  Story.find(params[:story_id]).status == 'locked'
+    respond_to do |format|
+     format.html { redirect_to root_path, notice: "You can't do that, sorry!" }
+	end
+   end
+   
+   
    #Here, we 'lock' the database
    #finished: means that the story is finished
    #editable: means that the story is editable

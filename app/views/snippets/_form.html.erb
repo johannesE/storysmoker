@@ -2,4 +2,7 @@
     <div class="control-group">
         <%= f.text_area :content, :class => 'text_area, input-block-level', :placeholder => 'What happens next?' %>
     </div>
+	
+	<%= f.hidden_field :ifSave, :value => '', :id => 'ifSave' %>
+
 <% end %>

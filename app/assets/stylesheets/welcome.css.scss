@@ -3,9 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.image{
- display: block;
- margin: 0 auto;
+
+
+#image{
+ clear: both;
+ float: right;
+ margin-right: -150px;
+ margin-top: 100px;
+ height: 200px;
+ background-image:url('background.png');
+ width: 600px;
+ height: 365px;
+}
+#text{
+ position: relative;
+ top: 150px;
+ left: 180px;
 }
 
 
@@ -16,6 +29,7 @@
 
 #read {
  float: left;
+ width: 500px;
 
 }
 #create{
@@ -23,9 +37,7 @@
 }
 
 
-a {
- color: #eee;
-}
+
 
 
 

@@ -42,7 +42,7 @@ class SnippetsController < ApplicationController
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
       
    respond_to do |format|
-      if params[:snippet][:content].present?
+      if params[:snippet][:content].present? && params[:snippet][:ifSave] == 'save'  
 	     @story = Story.find(params[:story_id])
          @snippet = @story.snippets.create(params[:snippet].permit(:content))
 		 
@@ -53,7 +53,7 @@ class SnippetsController < ApplicationController
 		 
 	    format.html { redirect_to root_path, notice: 'Snippet was successfully created!' }
       else
-	    format.html { redirect_to root_path, notice: 'You left editing a story; it\'s because you are there!' }
+	    format.html { redirect_to root_path, notice: 'You left editing a story' }
       end
 	end  
 

@@ -2,6 +2,9 @@ class Story < ActiveRecord::Base
 
  has_many :snippets
 
+ validates :title, presence: true
+ validates :tag_list, presence: true
+
 
 
 

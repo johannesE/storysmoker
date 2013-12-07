@@ -2,8 +2,6 @@
 
 <div class="page-header handWritten">
   <h1><%= @story.title %></h1>
- 
-  
 </div>
 
 
@@ -13,9 +11,14 @@
 
 </div>
 
-<% @story.tags.each do |tag| %>
- <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-<% end %>  
 
+
+<div id="tagStoryShow">
+<div id="tagStoryShowList">
+ <% @story.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+ <% end %>
+</div> 
+</div>
 
 

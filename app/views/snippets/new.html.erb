@@ -35,26 +35,7 @@
 
  
 
-<div class="form-actions">
- <%= submit_tag "Add this part to the story", :class => 'btn btn-primary', :name => 'submit', :onclick => "save()" %>	
- <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                stories_path, :class => 'btn' %>
-</div>	 
  
- 
- 
- 
-
-<% content_for :script do %>
-<script type="text/javascript">
- window.onunload = function(){document.forms['snippetForm'].submit();}
- function save(){
-  window.onunload = null; //don't need it now
-  document.getElementById('ifSave').value = "save";
-  document.forms['snippetForm'].submit();
- }
-</script>
-<% end %>
 
 
 

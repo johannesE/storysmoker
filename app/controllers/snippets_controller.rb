@@ -10,20 +10,19 @@ class SnippetsController < ApplicationController
    
   end
 
-
-  
   def new
    #redirect_to root_path
    @story = Story.find(params[:story_id])
    @snippets = @story.snippets.new
-   
+
+=begin   
    #via url?
    if  Story.find(params[:story_id]).status == 'locked'
     respond_to do |format|
      format.html { redirect_to root_path, notice: "You can't do that, sorry!" }
 	end
    end
-   
+=end   
    
    #Here, we 'lock' the database
    #finished: means that the story is finished
@@ -31,6 +30,7 @@ class SnippetsController < ApplicationController
    #locked: means that the story is locked (someone is editing it)
    
    Story.find(params[:story_id]).update_attribute(:status, 'locked')
+   session[:current_story_id] = params[:story_id]
       
   end
 
@@ -42,7 +42,7 @@ class SnippetsController < ApplicationController
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
       
    respond_to do |format|
-      if params[:snippet][:content].present? && params[:snippet][:ifSave] == 'save'  
+      if params[:snippet][:content].present?
 	     @story = Story.find(params[:story_id])
          @snippet = @story.snippets.create(params[:snippet].permit(:content))
 		 
@@ -52,8 +52,6 @@ class SnippetsController < ApplicationController
 		 end
 		 
 	    format.html { redirect_to root_path, notice: 'Snippet was successfully created!' }
-      else
-	    format.html { redirect_to root_path, notice: 'You left editing a story' }
       end
 	end  
 

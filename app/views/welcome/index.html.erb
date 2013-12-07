@@ -29,8 +29,20 @@
 </h2>
 </div>
 
-<div id="image">
- <%= image_tag "i.png", :id => 'text'%>
+
+
+<div id="randomStoryBackground">
+<div id="randomStory" class="handWritten">
+<% if Story.where(status: 'finished').count > 0 %>
+ <%= render Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at %>
+<%else%>
+no story finished actually
+<%end%>
 </div>
+</div>
+
+
+
+
 
 

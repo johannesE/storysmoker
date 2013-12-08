@@ -1,21 +1,50 @@
 <%= form_for @story, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
+
+
+
+
+
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-  </div>
+  <% end %>
+
+
+
+
+
+
+
+ <%= f.text_field :title, :class => 'text_field, input-xxlarge', :placeholder => "Title"%> <br />
+
+  <%= f.fields_for [@story, @story.snippets.build], :html => {:class => 'form-horizontal'} do |h| %>
   <div class="control-group">
-    <%= f.label :tag_list, "Tags (separated by commas)",  :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :tag_list, :class => 'text_field' %>
-    </div>
+   <%= h.text_area :content, :class => 'text_area, input-block-level', :placeholder => 'Begin of the story' %>
   </div>
+ <%end %>	
+ 
+ 
+ How many snippets do you want for this story?
+ <%= f.select :size, options_for_select([ "5", "10", "15", "20" ], "5"), {:prompt => "-- How many snippets? --"}, :class => 'input-small'%><br />
+
+ 
+ 
+ <%= f.text_field :tag_list, :class => 'text_field, input-xxlarge', :placeholder => "Tags (separated by commas)" %> 
+
+ 
+
   <%= f.hidden_field :status, :value => 'editable' %>
 
   
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit nil, :class => 'btn btn-primary' %>	
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 stories_path, :class => 'btn' %>
   </div>

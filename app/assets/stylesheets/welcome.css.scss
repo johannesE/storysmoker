@@ -4,13 +4,50 @@
 
 
 
-h3 {
+
+#randomStoryBackground{
+ clear: both;
+ float: right;
+ margin-right: -150px;
+ margin-top: 100px;
+ height: 200px;
+ background-image:url('background.png');
+ width: 600px;
+ height: 365px;
+}
+
+
+#randomStory{
+ position: relative;
+ top: 140px;
+ left: 180px;
+ height: 140px;
+ width: 400px;
+ overflow: hidden;
+}
+
+
+
+#text{
+ position: relative;
+ top: 150px;
+ left: 180px;
+}
+
+
+
+
+
+
+
+#catchphrase {
  text-align: center;
 }
 
 
 #read {
  float: left;
+ width: 500px;
 
 }
 #create{
@@ -18,11 +55,8 @@ h3 {
 }
 
 
-a:hover {
- background-color: transparent;
- color: gold;
- text-decoration: none;
-}
+
+
 
 
 .tag_cloud1{

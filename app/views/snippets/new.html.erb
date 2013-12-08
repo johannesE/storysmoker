@@ -1,20 +1,61 @@
 <%- model_class = Snippet -%>
-<div class="page-header">
+<div class="page-header handWritten">
  <h1 class="snippet"><%= @story.title %></h1>
 </div>
 
+<div class="handWritten">
 <h2>
 <% if @story.snippets.first.content != nil %>
  <%= @story.snippets.order("created_at ASC").last.content%>
-<% else %> 
- Hey dude, you have the honor of beginning this story!
+<% end %>
+</h2>
+</div>
+
+<div class="handWritten">
+<%= render :partial => 'form' %>
+</div>
+
+<hr />
+
+<h4>The following bar helps you to situate your snippet in the story</h4>
+<progress value="<%= @story.snippets.count %>" max="<%= @story.size%>"></progress>
+
+<h2>
+<% if @story.snippets.count == @story.size - 1 %>
+ You have to finish this story! 
 <% end %>
 </h2>
 
-<%= render :partial => 'form' %>
+
+ 
+ 
+<p>---------------------- TODO adding tags here ----------------------</p> 
+ 
+ 
+
+ 
+
+ 
 
 
 
-<h4>The following bar helps you to situate your action in the story</h4>
-<progress value="<%= @story.snippets.count %>" max="20"></progress>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

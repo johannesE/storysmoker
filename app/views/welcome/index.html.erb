@@ -1,8 +1,5 @@
-<%= image_tag "gb.jpg", :class => 'gb' %>
-
-<h3 class="welcome">STORYSMOKER - SMOKE YOUR STORIES - TOGETHER</h3>
+<h3 id="catchphrase">STORYSMOKER - SMOKE YOUR STORIES - TOGETHER</h3>
 <hr />
-
 
 <div id="read">
  <h2><%= link_to 'Read existing Stories', stories_path %></h2>
@@ -22,9 +19,9 @@
 <h2>
 
 <% if Story.where(status: 'editable').count > 0 %>
- <%= link_to 'Continue a story', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
+ <%= link_to 'Continue an existing story', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
 <% else %> 
- no story at the moment
+ No editable story at the moment
 <% end %>
 </h2>
 <h2>
@@ -32,7 +29,18 @@
 </h2>
 </div>
 
-<%= image_tag "hg.png" %>
+
+
+<div id="randomStoryBackground">
+<div id="randomStory" class="handWritten">
+<% if Story.where(status: 'finished').count > 0 %>
+ <%= render Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at %>
+<%else%>
+no story finished actually
+<%end%>
+</div>
+</div>
+
 
 
 

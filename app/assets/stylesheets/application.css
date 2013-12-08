@@ -11,7 +11,4 @@
  *= require_self
  *= require_tree .
  */
- 
-a:hover{
- color: blue;
-}
+

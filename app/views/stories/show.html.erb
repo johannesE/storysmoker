@@ -1,15 +1,30 @@
 <%- model_class = Story -%>
-<div class="page-header">
+
+<div class="page-header handWritten">
   <h1><%= @story.title %></h1>
 </div>
 
 
+<div class="handWritten">
 
-<% @story.tags.each do |tag| %>
- <%= link_to tag.name, tagged_url(:tag => tag.name) %>
-<% end %>
+<%= render @story.snippets.sort_by &:created_at %>
+
+</div>
 
 
+
+<<<<<<< HEAD
 you are here
 
 <%= render @story.snippets %>
+=======
+<div id="tagStoryShow">
+<div id="tagStoryShowList">
+ <% @story.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(:tag => tag.name) %>
+ <% end %>
+</div> 
+</div>
+
+
+>>>>>>> 38d3802874ee283b86a8d4e9e5d67a7f2192cc8c

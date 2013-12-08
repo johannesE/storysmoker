@@ -1,3 +1,17 @@
-body {
- background-color: #eee;
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
+
+
+.handWritten, .handWritten textarea {
+ font-family: 'Indie Flower', cursive;
+ font-size: 26px;
+}
+
+
+.handWritten ul {
+list-style: none;
+}
+
+.handWritten ul li {
+ padding: 10px;
 }

@@ -1,10 +1,13 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
+  include StatusHelper
+  
   # GET /stories
   # GET /stories.json
   def index
     @stories = Story.all
+    unlockDB
   end
 
   # GET /stories/1
@@ -15,6 +18,8 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @snippets = @story.snippets.new
+	
   end
 
   # GET /stories/1/edit
@@ -25,11 +30,15 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-
+	
     respond_to do |format|
       if @story.save
-        format.html { redirect_to @story, notice: 'Story was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @story }
+	  
+	    @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
+
+	    format.html { redirect_to root_path, notice: 'Story was successfully created.' }
+        #format.html { redirect_to @story, notice: 'Story was successfully created.' }
+        #format.json { render action: 'show', status: :created, location: @story }
       else
         format.html { render action: 'new' }
         format.json { render json: @story.errors, status: :unprocessable_entity }
@@ -69,6 +78,6 @@ class StoriesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def story_params
-    params.require(:story).permit(:title, :status, :tag_list)
+    params.require(:story).permit(:title, :status, :tag_list, :size)
   end
 end

@@ -17,12 +17,7 @@
 
 <div id="create"> 
 <h2>
-
-<% if Story.where(status: 'editable').count > 0 %>
- <%= link_to 'Continue an existing story', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
-<% else %> 
- No editable story at the moment
-<% end %>
+ <div class="dynamic"><%= render partial: 'dynamic' %></div>
 </h2>
 <h2>
  <%= link_to 'Create a new story', new_story_path%>
@@ -42,7 +37,13 @@ no story finished actually
 </div>
 
 
-
-
-
-
+<% content_for :script do %>
+<script type="text/javascript">
+ $(document).ready(
+  function() {
+   setInterval(function() {
+    $('.dynamic').load('/welcome/refresh');
+   }, 1000);
+ });
+</script>
+<% end %>

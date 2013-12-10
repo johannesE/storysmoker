@@ -17,6 +17,8 @@ post 'tagged' => 'posts#tagged', :as => 'tagged'
 get 'tagged' =>  'stories#findByTag'
 
 
+get "welcome/refresh"
+
   #get "welcome/index"
   #resources :posts
   get "home" => "welcome#index", as: :home

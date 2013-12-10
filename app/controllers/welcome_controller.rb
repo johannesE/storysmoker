@@ -5,7 +5,13 @@ class WelcomeController < ApplicationController
     @tags = Story.all.tag_counts_on(:tags)
 	
 	unlockDB
-	
-	
+
   end
+  
+
+   def refresh
+    render :partial => "welcome/dynamic"
+   end
+
+  
 end

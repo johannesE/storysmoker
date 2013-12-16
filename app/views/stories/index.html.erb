@@ -3,6 +3,20 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
+
+<% if session[:registered_user] == "admin" %>
+<div class="handWritten">  
+<ul>	
+  <% @stories.where(status: 'finished').each do |story| %>
+		<li>
+		 <%= link_to story.title, story_path(story) %>
+		 <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+		</li>
+  <% end %>	
+</ul>
+</div>
+<% else %>
+
 <div class="handWritten">  
 <ul>	
   <% @stories.where(status: 'finished').each do |story| %>
@@ -10,6 +24,11 @@
   <% end %>	
 </ul>
 </div>
+
+
+<%end %>
+
+
 
 
 

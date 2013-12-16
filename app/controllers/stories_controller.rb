@@ -61,6 +61,17 @@ class StoriesController < ApplicationController
     end
   end
 
+  #admin mode
+  def destroy
+    @story.destroy
+    respond_to do |format|
+      format.html { redirect_to stories_path, notice: 'Story was successfully deleted.' }
+    end
+  end  
+  
+  
+  
+  
   def findByTag
     if params[:tag].present?
       @stories = Story.tagged_with(params[:tag])

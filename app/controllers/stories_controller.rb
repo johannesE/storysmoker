@@ -13,7 +13,7 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-  end
+   @sortSnippets = @story.snippets.sort_by &:created_at  end
 
   # GET /stories/new
   def new

@@ -4,11 +4,11 @@
 </div>
 
 <div class="handWritten">
-<h2>
+<pre class="handWritten">
 <% if @story.snippets.first.content != nil %>
  <%= @story.snippets.order("created_at ASC").last.content%>
 <% end %>
-</h2>
+</pre>
 </div>
 
 <div class="handWritten">

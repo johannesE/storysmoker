@@ -25,16 +25,22 @@
 </div>
 
 
-
-<div id="randomStoryBackground">
+<div id="randomStoryContainer">
+<%= image_tag "background.png", :id => "image" %>
 <div id="randomStory" class="handWritten">
 <% if Story.where(status: 'finished').count > 0 %>
- <%= render Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at %>
+
+ <% @randomStory.each do |s| %>
+  <pre class="handWritten"><%= s.content %></pre>
+ <% end %>
+
 <%else%>
 no story finished actually
 <%end%>
 </div>
 </div>
+
+
 
 
 <% content_for :script do %>

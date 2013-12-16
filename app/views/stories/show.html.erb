@@ -5,16 +5,10 @@
 </div>
 
 
-<div class="handWritten">
+ <% @sortSnippets.each do |s| %>
+  <pre class="handWritten"><%= s.content %></pre>
+ <% end %>
 
-<%= render @story.snippets.sort_by &:created_at %>
-
-</div>
-
-
-
-
-<%= render @story.snippets %>
 
 <div id="tagStoryShow">
 <div id="tagStoryShowList">

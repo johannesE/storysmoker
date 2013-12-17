@@ -5,6 +5,20 @@
     </div>
 	
 	
+
+
+
+
+	
+ <%= f.fields_for @story, :html => {:class => 'form-horizontal'} do |h| %>
+  <div class="control-group">
+   <%= h.text_field :tag_list, :class => 'text_field, input-xxlarge', :placeholder => "Tags (separated by commas)"  %>
+  </div>
+ <%end %>
+	
+	
+	
+	
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>	
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

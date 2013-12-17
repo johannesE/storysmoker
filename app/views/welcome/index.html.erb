@@ -28,15 +28,17 @@
 <div id="randomStoryContainer">
 <%= image_tag "background.png", :id => "image" %>
 <div id="randomStory" class="handWritten">
-<% if Story.where(status: 'finished').count > 0 %>
 
+<% if !@randomStory.nil? %>
  <% @randomStory.each do |s| %>
   <pre class="handWritten"><%= s.content %></pre>
  <% end %>
 
 <%else%>
-no story finished actually
+<pre class="handWritten">no story</pre>
 <%end%>
+
+
 </div>
 </div>
 

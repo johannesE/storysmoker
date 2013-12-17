@@ -40,6 +40,11 @@ class SnippetsController < ApplicationController
    
    #Now, we can unlock the database
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
+   
+   hack = params[:snippet][:story][:tag_list]
+   Story.find(params[:story_id]).update_attribute(:tag_list, hack )
+#Story.find(params[:story_id]).update_attribute(:tag_list, 'tl')
+   
       
    respond_to do |format|
       if params[:snippet][:content].present?

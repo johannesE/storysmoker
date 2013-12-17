@@ -23,13 +23,7 @@ Tags:
     <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 <% end %>
 
-<%= form_for @story do |f| %>
 
-    <%= f.text_field :tag_list, :class => 'text_field, input-xxlarge', :placeholder => "Tags (separated by commas)" %>
-
-    <%= f.submit 'Add / Edit Tags', :class => 'btn btn-primary' %>
-
-<% end %>
 
 <hr/>
 

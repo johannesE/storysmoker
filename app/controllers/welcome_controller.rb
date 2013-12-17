@@ -1,21 +1,26 @@
 class WelcomeController < ApplicationController
- include StatusHelper
+  include StatusHelper
+
   def index
     @stories = Story.all
     @tags = Story.all.tag_counts_on(:tags)
-	
-	@randomStory = Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at
-	
 
-	
-	unlockDB
+    if @stories.where(status: 'finished').any?
+      @randomStory = Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at
+    else
+      @randomStory = nil
+    end
+    1
+
+
+    unlockDB
 
   end
-  
 
-   def refresh
+
+  def refresh
     render :partial => "welcome/dynamic"
-   end
+  end
 
-  
+
 end

@@ -10,10 +10,10 @@ class WelcomeController < ApplicationController
     else
       @randomStory = nil
     end
-    1
+    
 
 
-    unlockDB
+    #unlockDB
 
   end
 

@@ -19,12 +19,19 @@
 
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                root_path, :class => 'btn' %>
+  
+ <%= f.submit nil, :class => 'btn btn-primary' %>
+ 
+  <%= f.submit "Cancel", :name => 'submit', :class => 'btn'%>
+
+
   </div>
+  
 
-
-
-
+ 
 <% end %>
+
+
+
+
+

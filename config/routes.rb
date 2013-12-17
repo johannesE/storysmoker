@@ -18,6 +18,8 @@ get 'tagged' =>  'stories#findByTag'
 
 
 get "welcome/refresh"
+  get "unlock" => "snippets#unlock", as: :unlock
+
 
   #get "welcome/index"
   #resources :posts

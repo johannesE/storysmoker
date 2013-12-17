@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20131128201735) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "editable"
     t.string   "status"
     t.integer  "size"
   end

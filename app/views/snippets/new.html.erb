@@ -1,40 +1,47 @@
 <%- model_class = Snippet -%>
 <div class="page-header handWritten">
- <h1 class="snippet"><%= @story.title %></h1>
+  <h1 class="snippet"><%= @story.title %></h1>
 </div>
 
 <div class="handWritten">
 <pre class="handWritten">
 <% if @story.snippets.first.content != nil %>
- <%= @story.snippets.order("created_at ASC").last.content%>
+ <%= @story.snippets.order("created_at ASC").last.content %>
 <% end %>
 </pre>
 </div>
 
 <div class="handWritten">
-<%= render :partial => 'form' %>
+  <%= render :partial => 'form' %>
 </div>
 
 
 <% @story.tags.each do |tag| %>
     <%= link_to tag.name, tagged_url(:tag => tag.name) %>
 <% end %>
-<%= f.text_field :tag_list, :class => 'text_field, input-xxlarge', :placeholder => "More Tags (separated by commas)" %>
 
-<hr />
+<%= form_for @story do |f| %>
+
+    <%= f.text_field :tag_list, :class => 'text_field, input-xxlarge', :placeholder => "Tags (separated by commas)" %>
+
+    <%= f.submit 'Add / Edit Tags', :class => 'btn btn-primary' %>
+
+<% end %>
+
+<hr/>
 
 <h4>The following bar helps you to situate your snippet in the story</h4>
-<progress value="<%= @story.snippets.count %>" max="<%= @story.size%>"></progress>
+<progress value="<%= @story.snippets.count %>" max="<%= @story.size %>"></progress>
 
 <h2>
-<% if @story.snippets.count == @story.size - 1 %>
- You have to finish this story! 
-<% end %>
+  <% if @story.snippets.count == @story.size - 1 %>
+      You have to finish this story!
+  <% end %>
 </h2>
 
 
- 
- 
+
+
 <p>---------------------- TODO adding tags here ----------------------</p> 
  
  

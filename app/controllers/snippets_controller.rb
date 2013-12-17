@@ -40,12 +40,16 @@ class SnippetsController < ApplicationController
    
    #Now, we can unlock the database
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
-      
+
+   @tag = @story
+
    respond_to do |format|
       if params[:snippet][:content].present?
 	     @story = Story.find(params[:story_id])
          @snippet = @story.snippets.create(params[:snippet].permit(:content))
-		 
+       params = @params.merge(params[:snippet][:story].permit(:tag_list))
+		   @story = Story.update(@story.title, @story.status, params[:snippet][:story].permit(:tag_list), @story.size)
+
 		 #If the story is finished
 		 if @story.snippets.count == @story.size
 	      Story.find(params[:story_id]).update_attribute(:status, 'finished')

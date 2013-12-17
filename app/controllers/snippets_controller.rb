@@ -2,7 +2,9 @@ class SnippetsController < ApplicationController
 
   #before_filter :authenticate, :except => [:index, :show] FIXME .........................
 
-
+before_filter :check_for_cancel
+  
+  
   def index
    @story = Story.find(params[:story_id])
    @snippets = @story.snippets
@@ -61,6 +63,18 @@ class SnippetsController < ApplicationController
 	end  
 
   end
+  
+  def unlock
+   Story.find(params[:story_id]).update_attribute(:status, 'editable')
+  end
+  
+  def check_for_cancel
+   if params[:submit] == "Cancel"
+    unlock
+	redirect_to root_path
+   end
+  end
+  
 
 
 end

@@ -2,7 +2,7 @@ class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   include StatusHelper
-  
+
   # GET /stories
   # GET /stories.json
   def index
@@ -13,14 +13,14 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
-   @sortSnippets = @story.snippets.sort_by &:created_at  
+    @sortSnippets = @story.snippets.sort_by &:created_at
   end
 
   # GET /stories/new
   def new
     @story = Story.new
     @snippets = @story.snippets.new
-	
+
   end
 
   # GET /stories/1/edit
@@ -31,13 +31,13 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-	
+
     respond_to do |format|
       if @story.save
-	  
-	    @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
 
-	    format.html { redirect_to root_path, notice: 'Story was successfully created.' }
+        @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
+
+        format.html { redirect_to root_path, notice: 'Story was successfully created.' }
         #format.html { redirect_to @story, notice: 'Story was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @story }
       else
@@ -67,11 +67,9 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stories_path, notice: 'Story was successfully deleted.' }
     end
-  end  
-  
-  
-  
-  
+  end
+
+
   def findByTag
     if params[:tag].present?
       @stories = Story.tagged_with(params[:tag])

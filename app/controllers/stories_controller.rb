@@ -91,9 +91,9 @@ class StoriesController < ApplicationController
       if s.status == 'locked'
       s.update_attribute(:status, 'editable')
       end
-      redirect_to stories_path
-      return
     end
+    redirect_to stories_path
+    return
   end
 
   private

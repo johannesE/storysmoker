@@ -18,7 +18,7 @@ get 'tagged' =>  'stories#findByTag'
 get "welcome/refresh"
   get "unlock" => "snippets#unlock", as: :unlock
 
-
+  get 'setStatusAsEditable/:id' => "stories#setStatusAsEditable", as: :setStatusAsEditable
 
   #get "welcome/index"
   #resources :posts

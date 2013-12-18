@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    unlockDB
   end
 
   # GET /stories/1
@@ -78,6 +79,7 @@ class StoriesController < ApplicationController
     render 'stories/index'
   end
 
+<<<<<<< HEAD
   def unlock_all
     Story.all.each do |s|
       if s.status == 'locked'
@@ -87,6 +89,8 @@ class StoriesController < ApplicationController
     redirect_to stories_path
     return
   end
+=======
+>>>>>>> parent of b247005... unlock_all is working
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -98,6 +102,9 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, :status, :tag_list, :size)
   end
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> parent of b247005... unlock_all is working
 end

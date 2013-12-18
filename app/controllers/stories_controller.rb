@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only : [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   include StatusHelper
 
@@ -37,12 +37,12 @@ class StoriesController < ApplicationController
 
         @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
 
-        format.html { redirect_to root_path, notice : 'Story was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Story was successfully created.' }
         #format.html { redirect_to @story, notice: 'Story was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @story }
       else
-        format.html { render action : 'new' }
-        format.json { render json : @story.errors, status : :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @story.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,11 +52,11 @@ class StoriesController < ApplicationController
   def update
     respond_to do |format|
       if @story.update(story_params)
-        format.html { redirect_to @story, notice : 'Story was successfully updated.' }
+        format.html { redirect_to @story, notice: 'Story was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action : 'edit' }
-        format.json { render json : @story.errors, status : :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.json { render json: @story.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -65,7 +65,7 @@ class StoriesController < ApplicationController
   def destroy
     @story.destroy
     respond_to do |format|
-      format.html { redirect_to stories_path, notice : 'Story was successfully deleted.' }
+      format.html { redirect_to stories_path, notice: 'Story was successfully deleted.' }
     end
   end
 
@@ -83,11 +83,11 @@ class StoriesController < ApplicationController
   def unlock_all
     Story.all.each do |s|
       if s.status == 'locked'
-        s.update_attribute(:status, 'editable')
+      s.update_attribute(:status, 'editable')
       end
+      redirect_to stories_path
+      return
     end
-    redirect_to stories_path
-    return
   end
 =======
 >>>>>>> parent of b247005... unlock_all is working
@@ -105,6 +105,12 @@ class StoriesController < ApplicationController
 <<<<<<< HEAD
 
 
+<<<<<<< HEAD
 =======
 >>>>>>> parent of b247005... unlock_all is working
+=======
+
+
+
+>>>>>>> parent of 8943364... unlock_all bug fixed
 end

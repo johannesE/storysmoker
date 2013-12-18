@@ -7,7 +7,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
-    unlockDB
+    #unlockDB
   end
 
   # GET /stories/1
@@ -25,6 +25,7 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
+    #@sortSnippets = @story.snippets.sort_by &:created_at  
   end
 
   # POST /stories
@@ -78,6 +79,12 @@ class StoriesController < ApplicationController
     end
     render 'stories/index'
   end
+  
+  def setStatusAsEditable
+   Story.find(params[:id]).update_attribute(:status, 'editable')
+   redirect_to stories_path
+  end
+  
 
   def unlock_all
     Story.all.each do |s|

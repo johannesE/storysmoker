@@ -79,7 +79,6 @@ class StoriesController < ApplicationController
     render 'stories/index'
   end
 
-<<<<<<< HEAD
   def unlock_all
     Story.all.each do |s|
       if s.status == 'locked'
@@ -89,8 +88,6 @@ class StoriesController < ApplicationController
       return
     end
   end
-=======
->>>>>>> parent of b247005... unlock_all is working
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -102,15 +99,5 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, :status, :tag_list, :size)
   end
-<<<<<<< HEAD
 
-
-<<<<<<< HEAD
-=======
->>>>>>> parent of b247005... unlock_all is working
-=======
-
-
-
->>>>>>> parent of 8943364... unlock_all bug fixed
 end

@@ -15,7 +15,7 @@ gem 'acts-as-taggable-on'
 #gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 
-
+gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 
 
 group :development do

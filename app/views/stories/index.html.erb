@@ -4,9 +4,13 @@
 </div>
 
 <div class="handWritten">  
-<ul>	
+<ul>
+
   <% @stories.where(status: 'finished').each do |story| %>
 		<li><%= link_to story.title, story_path(story) %></li>
+
+
+
   <% end %>	
 </ul>
 </div>

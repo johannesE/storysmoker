@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :require_login, only: [:edit, :destroy, :update]
 
+
   # GET /users
   # GET /users.json
   def index
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users = User.all
   end
 
   # GET /users/new

@@ -22,11 +22,23 @@ get 'tagged' =>  'stories#findByTag'
   get "home" => "welcome#index", as: :home
 
   resources :stories do
+
+
+    member do
+           get 'like'
+
+
+
+    end
+
    resources :snippets
+
+
+
   end
   
   root to: "welcome#index"
-  
+
    
   
 

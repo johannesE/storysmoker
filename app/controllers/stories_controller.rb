@@ -2,10 +2,31 @@ class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   include StatusHelper
-  
+
+
+  def like
+    @current_user = User.first
+    @story = Story.find(params[:id])
+
+    if @current_user.flagged?(@story, :like)
+          #we already like this
+      @current_user.unflag(@story, :like)
+      msg = "You now don't like this article"
+        else
+          # we don't like this yet
+          @current_user.flag(@story, :like)
+          msg = "You now like this article"
+
+        end
+
+    redirect_to stories_path, :notice => msg
+
+  end
+
   # GET /stories
   # GET /stories.json
   def index
+    @current_user = User.first
     @stories = Story.all
     unlockDB
   end
@@ -13,6 +34,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+
+
   end
 
   # GET /stories/new
@@ -30,7 +53,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
-	
+
     respond_to do |format|
       if @story.save
 	  

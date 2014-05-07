@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
+
+  make_flagger
+
   has_many :authentications
  authenticates_with_sorcery!
+
+
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true

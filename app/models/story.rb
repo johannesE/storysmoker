@@ -1,5 +1,7 @@
 class Story < ActiveRecord::Base
 
+  make_flaggable :like
+
  has_many :snippets
 
  validates :title, presence: true

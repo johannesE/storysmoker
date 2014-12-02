@@ -13,6 +13,16 @@
  */
 
 
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+.handWritten, .handWritten textarea {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px; }
+
+.handWritten ul {
+  list-style: none; }
+
+.handWritten ul li {
+  padding: 10px; }
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
@@ -1704,6 +1714,16 @@ progress {
   border: none;
   height: 40px;
   width: 100%; }
+#tagStoryShow {
+  background-image: url("bs.png");
+  width: 472px;
+  height: 334px; }
+
+#tagStoryShowList {
+  width: 150px;
+  position: relative;
+  top: 70px;
+  left: 90px; }
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
 .clearfix:after{clear:both;}
 .hide-text{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;}
@@ -1850,21 +1870,38 @@ progress {
 .icon-filter{background-position:-408px -144px;}
 .icon-briefcase{background-position:-432px -144px;}
 .icon-fullscreen{background-position:-456px -144px;}
-.image {
-  display: block;
-  margin: 0 auto; }
+#randomStoryContainer {
+  margin-top: 100px;
+  height: 400px;
+  float: right; }
+
+#image {
+  position: relative;
+  z-index: 2; }
+
+#randomStory {
+  position: relative;
+  top: -300px;
+  left: 120px;
+  height: 300px;
+  width: 450px;
+  overflow: hidden;
+  z-index: 1; }
+
+#text {
+  position: relative;
+  top: 150px;
+  left: 180px; }
 
 #catchphrase {
   text-align: center; }
 
 #read {
-  float: left; }
+  float: left;
+  width: 500px; }
 
 #create {
   float: right; }
-
-a {
-  color: #eee; }
 
 .tag_cloud1 {
   font-size: 2em;

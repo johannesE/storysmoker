@@ -2,7 +2,9 @@ class SnippetsController < ApplicationController
 
   #before_filter :authenticate, :except => [:index, :show] FIXME .........................
 
-
+before_filter :check_for_cancel
+  
+  
   def index
    @story = Story.find(params[:story_id])
    @snippets = @story.snippets
@@ -40,6 +42,11 @@ class SnippetsController < ApplicationController
    
    #Now, we can unlock the database
    Story.find(params[:story_id]).update_attribute(:status, 'editable')
+   
+   hack = params[:snippet][:story][:tag_list]
+   Story.find(params[:story_id]).update_attribute(:tag_list, hack )
+#Story.find(params[:story_id]).update_attribute(:tag_list, 'tl')
+   
       
    respond_to do |format|
       if params[:snippet][:content].present?
@@ -56,6 +63,18 @@ class SnippetsController < ApplicationController
 	end  
 
   end
+  
+  def unlock
+   Story.find(params[:story_id]).update_attribute(:status, 'editable')
+  end
+  
+  def check_for_cancel
+   if params[:submit] == "Cancel"
+    unlock
+	redirect_to root_path
+   end
+  end
+  
 
 
 end

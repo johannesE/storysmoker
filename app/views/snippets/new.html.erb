@@ -1,35 +1,34 @@
 <%- model_class = Snippet -%>
 <div class="page-header handWritten">
- <h1 class="snippet"><%= @story.title %></h1>
+  <h1 class="snippet"><%= @story.title %></h1>
 </div>
 
 <div class="handWritten">
-<h2>
+<pre class="handWritten">
 <% if @story.snippets.first.content != nil %>
- <%= @story.snippets.order("created_at ASC").last.content%>
+ <%= @story.snippets.order("created_at ASC").last.content %>
 <% end %>
-</h2>
+</pre>
 </div>
 
 <div class="handWritten">
-<%= render :partial => 'form' %>
+  <%= render :partial => 'form' %>
 </div>
 
-<hr />
+
+
+<hr/>
 
 <h4>The following bar helps you to situate your snippet in the story</h4>
-<progress value="<%= @story.snippets.count %>" max="<%= @story.size%>"></progress>
+<progress value="<%= @story.snippets.count %>" max="<%= @story.size %>"></progress>
 
 <h2>
-<% if @story.snippets.count == @story.size - 1 %>
- You have to finish this story! 
-<% end %>
+  <% if @story.snippets.count == @story.size - 1 %>
+      You have to finish this story!
+  <% end %>
 </h2>
 
 
- 
- 
-<p>---------------------- TODO adding tags here ----------------------</p> 
  
  
 

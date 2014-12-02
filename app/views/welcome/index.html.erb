@@ -17,12 +17,7 @@
 
 <div id="create"> 
 <h2>
-
-<% if Story.where(status: 'editable').count > 0 %>
- <%= link_to 'Continue an existing story', new_story_snippet_path(Story.where(status: 'editable').offset(rand(Story.where(status: 'editable').count)).first.id) %>
-<% else %> 
- No editable story at the moment
-<% end %>
+ <div class="dynamic"><%= render partial: 'dynamic' %></div>
 </h2>
 <h2>
  <%= link_to 'Create a new story', new_story_path%>
@@ -30,19 +25,33 @@
 </div>
 
 
-
-<div id="randomStoryBackground">
+<div id="randomStoryContainer">
+<%= image_tag "background.png", :id => "image" %>
 <div id="randomStory" class="handWritten">
-<% if Story.where(status: 'finished').count > 0 %>
- <%= render Story.where(status: 'finished').offset(rand(Story.where(status: 'finished').count)).first.snippets.sort_by &:created_at %>
+
+<% if !@randomStory.nil? %>
+ <% @randomStory.each do |s| %>
+  <pre class="handWritten"><%= s.content %></pre>
+ <% end %>
+
 <%else%>
-no story finished actually
+<pre class="handWritten">no story</pre>
 <%end%>
+
+
 </div>
 </div>
 
 
 
 
-
-
+<% content_for :script do %>
+<script type="text/javascript">
+ $(document).ready(
+  function() {
+   setInterval(function() {
+    $('.dynamic').load('/welcome/refresh');
+   }, 1000);
+ });
+</script>
+<% end %>

@@ -8,11 +8,6 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:username) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:crypted_password) %></th>
-      <th><%= model_class.human_attribute_name(:salt) %></th>
-      <th><%= model_class.human_attribute_name(:remember_me_token) %></th>
-      <th><%= model_class.human_attribute_name(:remember_me_token_expires_at) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -22,11 +17,6 @@
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.username %></td>
         <td><%= user.email %></td>
-        <td><%= user.crypted_password %></td>
-        <td><%= user.salt %></td>
-        <td><%= user.remember_me_token %></td>
-        <td><%= user.remember_me_token_expires_at %></td>
-        <td><%=l user.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(user), :class => 'btn btn-mini' %>

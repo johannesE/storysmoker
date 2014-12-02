@@ -3,6 +3,7 @@ class StoriesController < ApplicationController
 
   include StatusHelper
 
+<<<<<<< HEAD
 
   def like
     @current_user = User.first
@@ -23,30 +24,37 @@ class StoriesController < ApplicationController
 
   end
 
+=======
+>>>>>>> FETCH_HEAD
   # GET /stories
   # GET /stories.json
   def index
     @current_user = User.first
     @stories = Story.all
-    unlockDB
+    #unlockDB
   end
 
   # GET /stories/1
   # GET /stories/1.json
   def show
+<<<<<<< HEAD
 
 
+=======
+    @sortSnippets = @story.snippets.sort_by &:created_at
+>>>>>>> FETCH_HEAD
   end
 
   # GET /stories/new
   def new
     @story = Story.new
     @snippets = @story.snippets.new
-	
+
   end
 
   # GET /stories/1/edit
   def edit
+    #@sortSnippets = @story.snippets.sort_by &:created_at  
   end
 
   # POST /stories
@@ -56,10 +64,10 @@ class StoriesController < ApplicationController
 
     respond_to do |format|
       if @story.save
-	  
-	    @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
 
-	    format.html { redirect_to root_path, notice: 'Story was successfully created.' }
+        @snippet = @story.snippets.create(params[:story][:snippet].permit(:content))
+
+        format.html { redirect_to root_path, notice: 'Story was successfully created.' }
         #format.html { redirect_to @story, notice: 'Story was successfully created.' }
         #format.json { render action: 'show', status: :created, location: @story }
       else
@@ -83,6 +91,15 @@ class StoriesController < ApplicationController
     end
   end
 
+  #admin mode
+  def destroy
+    @story.destroy
+    respond_to do |format|
+      format.html { redirect_to stories_path, notice: 'Story was successfully deleted.' }
+    end
+  end
+
+
   def findByTag
     if params[:tag].present?
       @stories = Story.tagged_with(params[:tag])
@@ -91,7 +108,22 @@ class StoriesController < ApplicationController
     end
     render 'stories/index'
   end
+  
+  def setStatusAsEditable
+   Story.find(params[:id]).update_attribute(:status, 'editable')
+   redirect_to stories_path
+  end
+  
 
+  def unlock_all
+    Story.all.each do |s|
+      if s.status == 'locked'
+      s.update_attribute(:status, 'editable')
+      end
+    end
+    redirect_to stories_path
+    return
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -103,4 +135,5 @@ class StoriesController < ApplicationController
   def story_params
     params.require(:story).permit(:title, :status, :tag_list, :size)
   end
+
 end

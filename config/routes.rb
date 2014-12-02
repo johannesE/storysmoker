@@ -1,8 +1,6 @@
 Storysmoker::Application.routes.draw do
 
-
-
-
+  get 'unlock_all' => "stories#unlock_all", :as => :unlock_all
 
   resources :authentications
 
@@ -16,6 +14,11 @@ Storysmoker::Application.routes.draw do
 post 'tagged' => 'posts#tagged', :as => 'tagged'
 get 'tagged' =>  'stories#findByTag'
 
+
+get "welcome/refresh"
+  get "unlock" => "snippets#unlock", as: :unlock
+
+  get 'setStatusAsEditable/:id' => "stories#setStatusAsEditable", as: :setStatusAsEditable
 
   #get "welcome/index"
   #resources :posts
